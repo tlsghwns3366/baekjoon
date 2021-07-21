@@ -1,6 +1,8 @@
 {
     "files.associations": {
-        "iostream": "cpp"
+        "iostream": "cpp",
+        "new": "cpp",
+        "ostream": "cpp"
     },
 
     // 코드 실행시 terminal clear
