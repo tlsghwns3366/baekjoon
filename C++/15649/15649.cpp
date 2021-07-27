@@ -1,29 +1,29 @@
 #include <iostream>
 
 using namespace std;
-void back(int *nm, int n, int m,int z)
+void back(int *nm, int n, int m, int z)
 {
-    if(z == m )
+    if (z == m)
     {
-        for(int i =0;i<m;i++)
+        for (int i = 0; i < m; i++)
         {
-            printf("%d ",nm[i]);
+            printf("%d ", nm[i]);
         }
         printf("\n");
         return;
     }
-    for(int i =0;i<n;i++)
+    for (int i = 0; i < n; i++)
     {
-        bool k =false;
-        for(int j = 0;j<z;j++)
+        bool k = false;
+        for (int j = 0; j < z; j++)
         {
-            if(nm[j] == i+1)
+            if (nm[j] == i + 1)
                 k = true;
         }
-        if(!k)
+        if (!k)
         {
-            nm[z] = i+1;
-            back(nm,n,m,z+1);
+            nm[z] = i + 1;
+            back(nm, n, m, z + 1);
         }
     }
 }
@@ -40,5 +40,5 @@ int main()
         nm[i] = 0;
     }
 
-    back(nm, n, m,0);
+    back(nm, n, m, 0);
 }
