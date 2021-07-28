@@ -14,7 +14,7 @@ void back(int *nm, int n, int m, int z)
     }
     for (int i = 0; i < n; i++)
     {
-        if (nm[(z==0? 1:z)-1] <= i+1)
+        if (nm[(z == 0 ? 1 : z) - 1] <= i + 1)
         {
             nm[z] = i + 1;
             back(nm, n, m, z + 1);
