@@ -34,8 +34,8 @@ int main()
 {
     int n, k;
     cin >> n >> k;
-    WV *wv = new WV[n+1];
-    int **dp = new int*[n+1];
+    WV *wv = new WV[n + 1];
+    int **dp = new int *[n + 1];
 
     for (int i = 1; i <= n; i++)
     {
@@ -43,9 +43,9 @@ int main()
     }
     sort(wv + 1, wv + n + 1, cmp);
 
-    for(int i =0;i<=n;i++)
+    for (int i = 0; i <= n; i++)
     {
-        dp[i] = new int[k+1]{0};
+        dp[i] = new int[k + 1]{0};
     }
     for (int i = 1; i <= n; i++)
     {
@@ -57,15 +57,6 @@ int main()
                 dp[i][j] = dp[i - 1][j];
         }
     }
-    for (int i = 0; i <= n; i++)
-    {
-        for (int j = 0; j <= k; j++)
-        {
-            cout << dp[i][j] << " ";
-        }
-        cout << endl;
-    }
-
     cout << dp[n][k];
     delete wv, dp;
 }
