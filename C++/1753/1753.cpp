@@ -29,7 +29,6 @@ int main()
         q.pop();
         for (int i = 0; i < vec[b].size(); i++)
         {
-            int temp = vec[b][i].first;
             if (vv[vec[b][i].first] > vv[b] + vec[b][i].second)
             {
                 vv[vec[b][i].first] = vv[b] + vec[b][i].second;
