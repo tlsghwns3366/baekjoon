@@ -25,7 +25,6 @@ int main()
     while (!q.empty())
     {
         int a, b;
-        a = -q.top().first;
         b = q.top().second;
         q.pop();
         for (int i = 0; i < vec[b].size(); i++)
