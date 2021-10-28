@@ -5,21 +5,25 @@ using namespace std;
 int v, e;
 bool f(int a, vector<int> *vec, int *vv)
 {
-    queue<pair<int, int>> q;
-    if (vv[a] == 2)
-        vv[a] = !vv[vec[a][0]];
-    q.push(make_pair(vv[a], vec[a][0]));
+    queue<int> q;
+    vv[a] = 1;
+    q.push(a);
     while (!q.empty())
     {
-        bool aa = q.front().first;
-        int temp = q.front().second;
-        vv[temp] = !aa;
+        int temp = q.front();
         q.pop();
         for (int i = 0; i < vec[temp].size(); i++)
         {
-            if (vv[vec[temp][i]] != vv[temp])
-                return false;
-            q.push(make_pair(vv[temp], vec[temp][i]));
+            if (vv[vec[temp][i]] == 2)
+            {
+                vv[vec[temp][i]] = !vv[temp];
+                q.push(vec[temp][i]);
+            }
+            else
+            {
+                if (vv[temp] == vv[vec[temp][i]])
+                    return false;
+            }
         }
     }
     return true;
@@ -39,11 +43,12 @@ int main()
             int a, b;
             cin >> a >> b;
             vec[a].push_back(b);
+            vec[b].push_back(a);
         }
         bool s = true;
         for (int i = 1; i <= v; i++)
         {
-            if (!vec[i].empty())
+            if (vv[i] == 2)
             {
                 s = f(i, vec, vv);
                 if (s == false)
