@@ -7,6 +7,8 @@ bool *b2;
 int ans;
 void f(int a, int c)
 {
+    if (c > ans)
+        ans = c;
     if (a > n * 2 - 1)
         return;
     int x, y;
@@ -27,12 +29,7 @@ void f(int a, int c)
         {
             b1[x + y] = true;
             b2[(n - 1) - (x - y)] = true;
-
-            if (c + 1 > ans)
-                ans = c + 1;
-
             f(a + 2, c + 1);
-
             temp = true;
             b1[x + y] = false;
             b2[(n - 1) - (x - y)] = false;
@@ -42,8 +39,6 @@ void f(int a, int c)
     }
     if (!temp)
         f(a + 2, c);
-    if (c > ans)
-        ans = c;
 }
 int main()
 {
