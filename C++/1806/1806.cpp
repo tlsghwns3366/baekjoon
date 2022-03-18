@@ -15,8 +15,6 @@ int main()
     int ans = 100000001;
     while (a <= b)
     {
-        if (b == n)
-            break;
         if (sum >= s)
         {
             if (ans > b - a)
@@ -24,6 +22,8 @@ int main()
             sum -= nn[a];
             a++;
         }
+        else if (b == n)
+            break;
         else
         {
             sum += nn[b];
