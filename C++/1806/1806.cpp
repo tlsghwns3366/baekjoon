@@ -10,24 +10,23 @@ int main()
         cin >> nn[i];
     }
     int a = 0;
-    int b = 1;
-    int sum = nn[a];
-    int count = 1;
+    int b = 0;
+    int sum = 0;
     int ans = 100000001;
-    while (b != n + 1)
+    while (a <= b)
     {
+        if (b == n)
+            break;
         if (sum >= s)
         {
-            if (ans > count)
-                ans = count;
+            if (ans > b - a)
+                ans = b - a;
             sum -= nn[a];
-            count--;
             a++;
         }
         else
         {
             sum += nn[b];
-            count++;
             b++;
         }
     }
