@@ -44,7 +44,9 @@ int main()
         int ansint[10000] = {
             0,
         };
-        char anschar[10000] = {'\0', 0};
+        char anschar[10000] = {
+            '\0',
+        };
 
         queue<int> q;
         q.push(a);
