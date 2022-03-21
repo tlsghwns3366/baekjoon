@@ -1,31 +1,8 @@
 #include <iostream>
 #include <algorithm>
 #include <queue>
-
 using namespace std;
-char str[4] = {'D', 'S', 'L', 'R'};
-int f(int a, char str)
-{
-    if (str == 'D')
-    {
-        return (a * 2) % 10000;
-    }
-    else if (str == 'S')
-    {
-        if (a == 0)
-            return 9999;
-        else
-            return a - 1;
-    }
-    else if (str == 'L')
-    {
-        return (a % 1000) * 10 + (a / 1000);
-    }
-    else if (str == 'R')
-    {
-        return (a % 10) * 1000 + (a / 10);
-    }
-}
+
 int main()
 {
     ios_base::sync_with_stdio(false);
@@ -67,16 +44,45 @@ int main()
                 cout << sans << "\n";
                 break;
             }
-            for (int i = 0; i < 4; i++)
+
+            int temp = (n * 2) % 10000;
+            if (!bfs[temp])
             {
-                int temp = f(n, str[i]);
-                if (!bfs[temp])
-                {
-                    bfs[temp] = true;
-                    ansint[temp] = n;
-                    anschar[temp] = str[i];
-                    q.push(temp);
-                }
+                bfs[temp] = true;
+                ansint[temp] = n;
+                anschar[temp] = 'D';
+                q.push(temp);
+            }
+
+            if (n == 0)
+                temp = 9999;
+            else
+                temp = n - 1;
+
+            if (!bfs[temp])
+            {
+                bfs[temp] = true;
+                ansint[temp] = n;
+                anschar[temp] = 'S';
+                q.push(temp);
+            }
+
+            temp = (n % 1000) * 10 + (n / 1000);
+            if (!bfs[temp])
+            {
+                bfs[temp] = true;
+                ansint[temp] = n;
+                anschar[temp] = 'L';
+                q.push(temp);
+            }
+
+            temp = (n % 10) * 1000 + (n / 10);
+            if (!bfs[temp])
+            {
+                bfs[temp] = true;
+                ansint[temp] = n;
+                anschar[temp] = 'R';
+                q.push(temp);
             }
         }
     }
