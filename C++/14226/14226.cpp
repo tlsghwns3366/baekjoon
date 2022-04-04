@@ -18,7 +18,7 @@ int main()
         {
             dp[i * j] = f(dp[i * j], dp[i] + j);
         }
-        for (int j = 1000; j >= 2; j--)
+        for (int j = 2; j <= 1000; j++)
         {
             dp[j] = f(dp[j], dp[j + 1] + 1);
         }
