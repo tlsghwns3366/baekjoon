@@ -9,18 +9,8 @@ int main()
     int count = 0;
     for (int i = 0; i < s.length(); i++)
     {
-        if (!ans.empty())
-        {
-            if (s[i] == t[ans.top().second])
-                ans.push({s[i], ans.top().second + 1});
-            else
-            {
-                if (s[i] == t[0])
-                    ans.push({s[i], 1});
-                else
-                    ans.push({s[i], 0});
-            }
-        }
+        if (!ans.empty() && s[i] == t[ans.top().second])
+            ans.push({s[i], ans.top().second + 1});
         else
         {
             if (s[i] == t[0])
