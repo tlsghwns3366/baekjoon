@@ -28,7 +28,7 @@ int main()
         ansstack.pop();
     }
     int temp = outans.size();
-    for (int i = 0; i < temp-k; i++)
+    for (int i = 0; i < temp - k; i++)
     {
         cout << outans.top();
         outans.pop();
