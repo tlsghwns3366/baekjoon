@@ -13,7 +13,7 @@ int main()
         c++;
         while (true)
         {
-            if (s.find("{}") == s.find("{{") == s.find("}}") == s.find("}{") == string::npos || s == "")
+            if (s == "")
                 break;
             if (s.find("{}") != string::npos)
                 s.erase(s.find("{}"), 2);
