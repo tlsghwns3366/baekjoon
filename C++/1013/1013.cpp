@@ -13,26 +13,19 @@ int main()
         bool ans = true;
         for (int i = 0; i < s.length(); i++)
         {
-            if (s[i] == '0')
+            if (s[i] == '0' && s[i + 1] == '1')
             {
-                if (s[i + 1] == '1')
-                    i++;
-                else
-                {
-                    ans = false;
-                    break;
-                }
+                i++;
             }
-            else if (s[i] == '1')
+            else if (s[i] == '1' && s[i + 1] == '0' && s[i + 2] == '0')
             {
-                bool fone = false;
                 int j, temp;
-                for (j = i + 1; j < s.length(); j++)
+                for (j = i + 3; j < s.length(); j++)
                 {
                     if (s[j] != '0')
                         break;
                 }
-                if (j - i <= 2 || j == s.length())
+                if (j == s.length())
                 {
                     ans = false;
                     break;
