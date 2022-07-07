@@ -28,7 +28,7 @@ int main()
             for (int k = 1; k <= n; k++)
             {
                 if (d[j][k] > d[j][i] + d[i][k])
-                    d[j][k] = d[j][k] < d[j][i] + d[i][k] ? d[j][k] : d[j][i] + d[i][k];
+                    d[j][k] = d[j][i] + d[i][k];
             }
         }
     }
