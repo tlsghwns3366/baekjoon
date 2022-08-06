@@ -111,20 +111,20 @@ int main()
     bool ans = false;
     while (true)
     {
-        int texi = f(a, b);
-        if (texi == -1)
+        int taxi = f(a, b);
+        if (taxi == -1)
         {
             break;
         }
-        int plus = tmove(texi);
+        int plus = tmove(taxi);
         if (s < 0)
         {
             ans = true;
             break;
         }
         s += plus * 2;
-        a = t[texi].first;
-        b = t[texi].second;
+        a = t[taxi].first;
+        b = t[taxi].second;
     }
     if (ans || m != 0)
         cout << "-1";
