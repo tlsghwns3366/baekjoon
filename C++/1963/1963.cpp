@@ -48,6 +48,9 @@ int main()
                 }
             }
         }
-        cout << sosucount[stoi(b)] << "\n";
+        if (sosucount[stoi(b)] == 987654321)
+            cout << "Impossible\n";
+        else
+            cout << sosucount[stoi(b)] << "\n";
     }
 }
