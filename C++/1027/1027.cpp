@@ -19,7 +19,6 @@ int main()
             double temp = (double)(d[j] - d[i]) / (double)(j - i);
             if(temp > a)
             {
-                cout<<i<<" "<<j<<endl;
                 ans[i]++;
                 ans[j]++;
                 a = temp;
