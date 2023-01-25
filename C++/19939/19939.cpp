@@ -23,11 +23,8 @@ int main()
         {
             nn[i] = nn[i - 1] + 1;
         }
-        for (int i = k; n > 0; i--)
-        {
-            n--;
-            nn[i]++;
-        }
+        if(n != 0)
+            nn[k]++;
         cout << nn[k] - nn[1];
     }
 }
