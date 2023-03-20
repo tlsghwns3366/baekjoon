@@ -15,9 +15,9 @@ int main()
     double m1 = 1987654321;
     double m2 = 1987654321;
     if (x1 != x2)
-        m1 = abs(y2 - y1) / abs(x2 - x1);
+        m1 = (y2 - y1) / (x2 - x1);
     if (x2 != x3)
-        m2 = abs(y3 - y2) / abs(x3 - x2);
+        m2 = (y3 - y2) / (x3 - x2);
     if (m1 == m2)
         cout << -1;
     else
