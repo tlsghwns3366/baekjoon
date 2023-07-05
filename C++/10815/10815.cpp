@@ -23,7 +23,7 @@ int main()
     }
     for (int i = 0; i < m; i++)
     {
-        int a = n-1;
+        int a = n - 1;
         int b = 0;
         while (a >= b)
         {
