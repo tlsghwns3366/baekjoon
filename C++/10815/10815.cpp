@@ -1,11 +1,14 @@
 #include <iostream>
 #include <algorithm>
 using namespace std;
+
+int nn[500001];
+int mm[500001];
+int mb[500001];
 int main()
 {
     int n;
     cin >> n;
-    int nn[n];
     for (int i = 0; i < n; i++)
     {
         cin >> nn[i];
@@ -13,8 +16,6 @@ int main()
     sort(nn, nn + n);
     int m;
     cin >> m;
-    int mm[m];
-    int mb[m];
     for (int i = 0; i < m; i++)
     {
         cin >> mm[i];
@@ -22,7 +23,7 @@ int main()
     }
     for (int i = 0; i < m; i++)
     {
-        int a = n;
+        int a = n-1;
         int b = 0;
         while (a >= b)
         {
