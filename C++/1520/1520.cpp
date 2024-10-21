@@ -2,76 +2,46 @@
 using namespace std;
 int n, m;
 int nm[501][501];
-int count[501][501];
+int dp[501][501];
 
-void uprightdown(int a, int b, int c, int x)
+int dx[4] = {0, 1, 0, -1};
+int dy[4] = {-1, 0, 1, 0};
+
+int dfs(int x, int y)
 {
-    if (a - 1 >= 0)
+    if (x == n - 1 && y == m - 1)
+        return 1;
+    if (dp[x][y] != -1)
+        return dp[x][y];
+    dp[x][y] = 0;
+    for (int i = 0; i < 4; i++)
     {
-        if (nm[a - 1][b] < nm[a][b])
+        int ddx = x + dx[i];
+        int ddy = y + dy[i];
+        if (ddx >= 0 && ddx < n && ddy >= 0 && ddy < m)
         {
-            count[a - 1][b] += c;
-            uprightdown(a - 1, b, c, x);
+            if (nm[ddx][ddy] < nm[x][y])
+                dp[x][y] += dfs(ddx, ddy);
         }
     }
-    if (a + 1 < x)
-    {
-        if (nm[a + 1][b] < nm[a][b])
-        {
-            count[a + 1][b] += c;
-            uprightdown(a + 1, b, c, x);
-        }
-    }
-    if (b + 1 < m)
-    {
-        if (nm[a][b + 1] < nm[a][b])
-        {
-            count[a][b + 1] += c;
-            uprightdown(a, b + 1, c, x);
-        }
-    }
+    return dp[x][y];
 }
-void upleftdown(int a, int b)
-{
-    if (a - 1 >= 0)
-    {
-        if (nm[a - 1][b] > nm[a][b])
-            count[a][b] += count[a - 1][b];
-    }
-    if (b - 1 >= 0)
-    {
-        if (nm[a][b - 1] > nm[a][b])
-            count[a][b] += count[a][b - 1];
-    }
-}
-void upleftup(int a, int b)
-{
-    if (a - 1 >= 0)
-    {
-        if (nm[a - 1][b] < nm[a][b])
-        {
-            count[a - 1][b] += count[a][b];
-            uprightdown(a - 1, b, count[a][b], a);
-        }
-    }
-    if (b - 1 >= 0)
-    {
-        if (nm[a][b - 1] < nm[a][b])
-            count[a][b - 1] += count[a][b];
-    }
-}
+
 int main()
 {
+    ios::sync_with_stdio(false);
+    cin.tie(NULL);
+    cout.tie(NULL);
+
     cin >> n >> m;
-    count[0][0] = 1;
     for (int i = 0; i < n; i++)
     {
         for (int j = 0; j < m; j++)
         {
             cin >> nm[i][j];
-            upleftdown(i, j);
-            upleftup(i, j);
+            dp[i][j] = -1;
         }
     }
-    cout << count[n - 1][m - 1];
+    dfs(0, 0);
+    cout << dp[0][0];
 }
