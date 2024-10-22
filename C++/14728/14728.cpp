@@ -23,7 +23,7 @@ int main()
         {
             if(j - v[i-1][0] >= 0)
             {
-                dp[i][j] = dp[i][j-v[i-1][0]] + v[i-1][1];
+                dp[i][j] = max(dp[i-1][j],dp[i-1][j-v[i-1][0]] + v[i-1][1]);
             }
             else
                 dp[i][j] = dp[i-1][j];
