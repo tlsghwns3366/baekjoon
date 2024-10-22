@@ -19,7 +19,7 @@ int main()
     }
     for (int i = 1; i <= n; i++)
     {
-        for (int j = 1; j <= 10000; j++)
+        for (int j = 0; j <= 10000; j++)
         {
             if (b[i] <= j)
             {
@@ -27,6 +27,7 @@ int main()
             }
             else
                 dp[i][j] = dp[i - 1][j];
+
             if (dp[i][j] >= m)
             {
                 ans = ans < j ? ans : j;
